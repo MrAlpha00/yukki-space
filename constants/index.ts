@@ -347,15 +347,27 @@ export const FOOTER_DATA = [
 export const NAV_LINKS = [
   {
     title: "Home",
-    link: "#home",
+    link: "/#home",
+  },
+  {
+    title: "About Me",
+    link: "/#about-me",
   },
   {
     title: "Skills",
-    link: "#skills",
+    link: "/#skills",
   },
   {
     title: "Projects",
-    link: "#projects",
+    link: "/#projects",
+  },
+  {
+    title: "Contact",
+    link: "/#contact",
+  },
+  {
+    title: "Hire Me",
+    link: "/hire",
   },
 ] as const;
 
