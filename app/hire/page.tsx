@@ -8,7 +8,7 @@ import { useInView } from "react-intersection-observer";
 import {
   FaBrain,
   FaBolt,
-  FaCpu,
+  FaMicrochip,
   FaCode,
   FaBriefcase,
   FaGraduationCap,
@@ -36,10 +36,7 @@ const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => 
     if (!inView) return;
     let start = 0;
     const end = value;
-    if (start === end) {
-      setCount(end);
-      return;
-    }
+    if (start === end) return;
 
     const duration = 2000; // 2 seconds
     const incrementTime = Math.max(Math.floor(duration / end), 15);
@@ -63,18 +60,19 @@ const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => 
   );
 };
 
+const terminalLines = [
+  "MISSION CONTROL ONLINE",
+  "SCANNING DEVELOPER PROFILE...",
+  "LOADING EXPERIENCE...",
+  "LOADING PROJECTS...",
+  "CHECKING AVAILABILITY...",
+  "STATUS: AVAILABLE FOR HIRE",
+];
+
 export default function HirePage() {
   // Loading Terminal state
   const [loading, setLoading] = useState(true);
   const [printedLines, setPrintedLines] = useState<string[]>([]);
-  const terminalLines = [
-    "MISSION CONTROL ONLINE",
-    "SCANNING DEVELOPER PROFILE...",
-    "LOADING EXPERIENCE...",
-    "LOADING PROJECTS...",
-    "CHECKING AVAILABILITY...",
-    "STATUS: AVAILABLE FOR HIRE",
-  ];
 
   useEffect(() => {
     let currentLine = 0;
@@ -367,7 +365,7 @@ export default function HirePage() {
                     {
                       title: "AI Integration",
                       desc: "Leveraging state-of-the-art LLMs, agents, embeddings, and prompt engineering to automate workflows.",
-                      icon: FaCpu,
+                      icon: FaMicrochip,
                       color: "hover:border-indigo-500 hover:shadow-indigo-500/20",
                     },
                     {
