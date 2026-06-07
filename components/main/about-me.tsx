@@ -13,22 +13,42 @@ export const AboutMe = () => {
     >
       <div className="w-full max-w-[1200px] flex flex-col md:flex-row items-center justify-between gap-12">
         
-        {/* Left Side (50%) - About Me content box */}
+        {/* Left Side (50%) - Terminal/Window Style Card */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={slideInFromLeft(0.3)}
-          className="w-full md:w-1/2 flex flex-col justify-center gap-6"
+          className="w-full md:w-1/2 flex flex-col justify-center"
         >
-          <h2 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 pb-2">
-            About Me
-          </h2>
-          
-          <div className="p-8 border border-[#7042f88b] bg-[#0300145e] backdrop-blur-md shadow-lg shadow-[#2A0E61]/50 shadow-[inset_0_-7px_11px_#a48fff1f] rounded-2xl hover:border-[#9b7bf8] transition duration-300 w-full">
-            <p className="text-gray-300 text-lg leading-relaxed">
-              This section will contain my personal introduction, experience, skills, and background. Content will be updated later.
-            </p>
+          {/* Terminal Card Container */}
+          <div className="w-full rounded-2xl border border-[#7042f88b] bg-[#0300145e] backdrop-blur-md shadow-lg shadow-[#2A0E61]/50 shadow-[inset_0_-7px_11px_#a48fff1f] overflow-hidden hover:border-[#9b7bf8] transition duration-300">
+            
+            {/* Top Bar */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-[#7042f88b] bg-[#03001490]">
+              {/* Three dots (red, yellow, green) */}
+              <div className="flex items-center gap-2 w-16">
+                <span className="w-3 h-3 rounded-full bg-[#ff5f56] shadow-[0_0_8px_#ff5f56] inline-block"></span>
+                <span className="w-3 h-3 rounded-full bg-[#ffbd2e] shadow-[0_0_8px_#ffbd2e] inline-block"></span>
+                <span className="w-3 h-3 rounded-full bg-[#27c93f] shadow-[0_0_8px_#27c93f] inline-block"></span>
+              </div>
+              
+              {/* Title Text */}
+              <div className="font-semibold text-sm tracking-widest text-[#b49bff] drop-shadow-[0_0_6px_#7042f8] select-none">
+                ABOUT ME
+              </div>
+              
+              {/* Balance spacer */}
+              <div className="w-16"></div>
+            </div>
+            
+            {/* Card Body */}
+            <div className="p-8">
+              <p className="text-gray-300 text-lg leading-relaxed font-light">
+                I am a Full Stack Developer passionate about building modern web applications, AI-powered tools, and innovative digital experiences. This content will be updated later.
+              </p>
+            </div>
+            
           </div>
         </motion.div>
 
