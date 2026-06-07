@@ -174,16 +174,54 @@ export default function HirePage() {
   };
 
   return (
-    <div className="relative w-full h-full min-h-screen text-white bg-[#030014] overflow-x-hidden">
-      {/* Background blackhole video */}
-      <video
-        autoPlay
-        muted
-        loop
-        className="rotate-180 absolute top-[-340px] left-0 w-full h-full object-cover -z-20 opacity-80"
-      >
-        <source src="/videos/blackhole.webm" type="video/webm" />
-      </video>
+    <div className="relative w-full h-full min-h-screen text-white bg-transparent overflow-x-hidden">
+      
+      {/* Background Video 1: Blackhole behind Hero Command Center */}
+      <div className="absolute top-0 left-0 w-full h-[100vh] -z-20 overflow-hidden opacity-80">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="rotate-180 absolute top-[-340px] left-0 w-full h-full object-cover"
+        >
+          <source src="/videos/blackhole.webm" type="video/webm" />
+        </video>
+      </div>
+
+      {/* Background Video 2: Skills particles behind Why Hire Me, Statistics & Tech Arsenal */}
+      <div className="absolute top-[90vh] left-0 w-full h-[240vh] -z-20 overflow-hidden opacity-25">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/videos/skills-bg.webm" type="video/webm" />
+        </video>
+      </div>
+
+      {/* Background Video 3: Encryption lines behind Launch Timeline & Contact Command Center */}
+      <div className="absolute bottom-0 left-0 w-full h-[220vh] -z-20 overflow-hidden opacity-15">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/videos/encryption-bg.webm" type="video/webm" />
+        </video>
+      </div>
+
+      {/* Glowing Ambient Nebula Blobs */}
+      <div className="absolute top-[10%] left-[50%] -translate-x-1/2 w-[600px] h-[600px] bg-[#7042f8]/15 blur-[150px] rounded-full -z-10 pointer-events-none" />
+      <div className="absolute top-[35%] left-[10%] w-[350px] h-[350px] bg-[#00f2fe]/10 blur-[130px] rounded-full -z-10 pointer-events-none" />
+      <div className="absolute top-[55%] right-[5%] w-[450px] h-[450px] bg-[#7042f8]/10 blur-[140px] rounded-full -z-10 pointer-events-none" />
+      <div className="absolute top-[75%] left-[20%] w-[500px] h-[250px] bg-gradient-to-r from-purple-500/8 to-cyan-500/8 blur-[120px] rounded-full -z-10 pointer-events-none" />
+      <div className="absolute bottom-[10%] right-[10%] w-[500px] h-[500px] bg-[#7042f8]/12 blur-[150px] rounded-full -z-10 pointer-events-none" />
+      <div className="absolute bottom-[5%] left-[5%] w-[350px] h-[350px] bg-[#00f2fe]/8 blur-[120px] rounded-full -z-10 pointer-events-none" />
 
       <AnimatePresence mode="wait">
         {loading ? (
