@@ -336,21 +336,24 @@ export default function HirePage() {
                   <div className="relative w-full max-w-[380px] group">
                     <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-purple-600 to-cyan-500 opacity-60 blur-md group-hover:opacity-100 group-hover:blur-lg transition duration-500"></div>
                     <div className="relative rounded-2xl bg-[#030014]/90 border-2 border-[#7042f88b] p-8 flex flex-col items-center gap-6 shadow-2xl backdrop-blur-md">
-                      <div className="relative w-32 h-32 rounded-full border-2 border-[#00f2fe] p-1 overflow-hidden shadow-[0_0_20px_#00f2fe]">
+                      <div className="relative w-40 h-40 rounded-full border-2 border-[#00f2fe] p-1 overflow-hidden shadow-[0_0_20px_#00f2fe]">
                         <Image
                           src="/profile.png"
                           alt="Hologram Profile"
-                          width={128}
-                          height={128}
+                          width={160}
+                          height={160}
                           className="rounded-full object-cover select-none filter brightness-95"
                           draggable={false}
                         />
                       </div>
                       
-                      <div className="text-center flex flex-col gap-1.5">
+                      <div className="text-center flex flex-col gap-2 mt-4">
                         <h3 className="text-2xl font-bold text-white tracking-wide">Yuktha A R</h3>
                         <p className="text-[#00f2fe] font-mono text-sm tracking-wider font-light">Software Engineer</p>
-                        <p className="text-gray-400 text-xs flex items-center justify-center gap-1.5 mt-1 font-light">
+                      </div>
+
+                      <div className="text-center mt-2">
+                        <p className="text-gray-400 text-xs flex items-center justify-center gap-1.5 font-light">
                           <FaMapMarkerAlt className="text-purple-500" /> Bengaluru, India
                         </p>
                       </div>
