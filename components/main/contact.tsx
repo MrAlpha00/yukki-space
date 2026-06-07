@@ -257,7 +257,7 @@ export const Contact = () => {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="John Doe"
+                placeholder="Yuktha A R"
                 className="w-full px-4 py-3 rounded-lg border border-[#7042f840] bg-[#03001480] text-white focus:outline-none focus:border-[#00f2fe] transition duration-300"
               />
             </div>
@@ -273,7 +273,7 @@ export const Contact = () => {
                 required
                 value={email}
                 onChange={(e) => handleEmailChange(e.target.value)}
-                placeholder="john@example.com"
+                placeholder="yuktha@example.com"
                 className={`w-full px-4 py-3 rounded-lg border bg-[#03001480] text-white focus:outline-none transition duration-300 ${
                   emailError ? "border-red-500/80 focus:border-red-500" : "border-[#7042f840] focus:border-[#00f2fe]"
                 }`}
