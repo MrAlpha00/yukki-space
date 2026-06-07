@@ -39,6 +39,7 @@ export const Turnstile = ({ siteKey, onVerify, onExpire }: TurnstileProps) => {
     }
 
     let widgetId: string | null = null;
+    const currentContainer = containerRef.current;
 
     const renderWidget = () => {
       if ((window as any).turnstile && containerRef.current) {
@@ -70,8 +71,8 @@ export const Turnstile = ({ siteKey, onVerify, onExpire }: TurnstileProps) => {
           // ignore
         }
       }
-      if (containerRef.current) {
-        containerRef.current.innerHTML = "";
+      if (currentContainer) {
+        currentContainer.innerHTML = "";
       }
     };
   }, [siteKey, onVerify, onExpire]);
