@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaWhatsapp,
@@ -23,61 +24,62 @@ interface ToastType {
 const contactPlatforms = [
   {
     name: "Email",
-    display: "your-email@example.com",
+    display: "yukthaaryukthaar@gmail.com",
     icon: FaEnvelope,
     buttonText: "Send Email",
-    link: "mailto:your-email@example.com",
+    link: "mailto:yukthaaryukthaar@gmail.com",
     color: "from-blue-600/30 to-purple-600/10",
     shadow: "shadow-blue-500/20",
   },
   {
     name: "WhatsApp",
-    display: "+1 (555) 000-0000",
+    display: "+91 7353299377",
     icon: FaWhatsapp,
     buttonText: "Message",
-    link: "https://wa.me/15550000000",
+    link: "https://wa.me/917353299377",
     color: "from-green-600/30 to-emerald-600/10",
     shadow: "shadow-green-500/20",
   },
   {
     name: "LinkedIn",
-    display: "linkedin-username",
+    display: "Yukthaar28",
     icon: FaLinkedin,
     buttonText: "Visit Profile",
-    link: "https://linkedin.com/in/linkedin-username",
+    link: "https://linkedin.com/in/Yukthaar28",
     color: "from-sky-600/30 to-blue-600/10",
     shadow: "shadow-sky-500/20",
   },
   {
     name: "Discord",
-    display: "discord_username",
+    display: "YukthaAr28",
     icon: FaDiscord,
     buttonText: "Open Discord",
-    link: "https://discord.com/users/discord_username",
+    link: "https://discord.com/users/YukthaAr28",
     color: "from-indigo-600/30 to-violet-600/10",
     shadow: "shadow-indigo-500/20",
   },
   {
     name: "GitHub",
-    display: "github-username",
+    display: "YukthaAr28",
     icon: FaGithub,
     buttonText: "View GitHub",
-    link: "https://github.com/github-username",
+    link: "https://github.com/YukthaAr28",
     color: "from-gray-600/30 to-slate-600/10",
     shadow: "shadow-gray-500/20",
   },
   {
     name: "Instagram",
-    display: "instagram_username",
+    display: "sharmikrishna_28_",
     icon: FaInstagram,
     buttonText: "View Profile",
-    link: "https://instagram.com/instagram_username",
+    link: "https://instagram.com/sharmikrishna_28_",
     color: "from-pink-600/30 to-rose-600/10",
     shadow: "shadow-pink-500/20",
   },
 ];
 
 export const Contact = () => {
+  const router = useRouter();
   // Form state
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -159,6 +161,9 @@ export const Contact = () => {
       setSubject("");
       setMessage("");
       setTurnstileToken("");
+
+      // Redirect to thank you page
+      router.push("/thank-you");
     } catch (err: any) {
       addToast(err.message || "Failed to send message. Please try again.", "error");
     } finally {

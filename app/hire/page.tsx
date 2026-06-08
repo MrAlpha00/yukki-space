@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -70,6 +71,7 @@ const terminalLines = [
 ];
 
 export default function HirePage() {
+  const router = useRouter();
   // Loading Terminal state
   const [loading, setLoading] = useState(true);
   const [printedLines, setPrintedLines] = useState<string[]>([]);
@@ -166,6 +168,7 @@ export default function HirePage() {
       setSubject("");
       setMessage("");
       setTurnstileToken("");
+      router.push("/thank-you");
     } catch (err: any) {
       addToast(err.message || "Failed to send message. Please try again.", "error");
     } finally {
@@ -633,12 +636,12 @@ export default function HirePage() {
                   {/* Left Side - Contact cards */}
                   <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {[
-                      { name: "Email", display: "your-email@example.com", icon: FaEnvelope, text: "Send Email", link: "mailto:your-email@example.com", color: "from-blue-600/30 to-purple-600/10", shadow: "shadow-blue-500/20" },
-                      { name: "WhatsApp", display: "+1 (555) 000-0000", icon: FaWhatsapp, text: "Message", link: "https://wa.me/15550000000", color: "from-green-600/30 to-emerald-600/10", shadow: "shadow-green-500/20" },
-                      { name: "LinkedIn", display: "linkedin-username", icon: FaLinkedin, text: "Visit Profile", link: "https://linkedin.com/in/linkedin-username", color: "from-sky-600/30 to-blue-600/10", shadow: "shadow-sky-500/20" },
-                      { name: "Discord", display: "discord_username", icon: FaDiscord, text: "Open Discord", link: "https://discord.com/users/discord_username", color: "from-indigo-600/30 to-violet-600/10", shadow: "shadow-indigo-500/20" },
-                      { name: "GitHub", display: "github-username", icon: FaGithub, text: "View GitHub", link: "https://github.com/github-username", color: "from-gray-600/30 to-slate-600/10", shadow: "shadow-gray-500/20" },
-                      { name: "Instagram", display: "instagram_username", icon: FaInstagram, text: "View Profile", link: "https://instagram.com/instagram_username", color: "from-pink-600/30 to-rose-600/10", shadow: "shadow-pink-500/20" },
+                      { name: "Email", display: "yukthaaryukthaar@gmail.com", icon: FaEnvelope, text: "Send Email", link: "mailto:yukthaaryukthaar@gmail.com", color: "from-blue-600/30 to-purple-600/10", shadow: "shadow-blue-500/20" },
+                      { name: "WhatsApp", display: "+91 7353299377", icon: FaWhatsapp, text: "Message", link: "https://wa.me/917353299377", color: "from-green-600/30 to-emerald-600/10", shadow: "shadow-green-500/20" },
+                      { name: "LinkedIn", display: "Yukthaar28", icon: FaLinkedin, text: "Visit Profile", link: "https://linkedin.com/in/Yukthaar28", color: "from-sky-600/30 to-blue-600/10", shadow: "shadow-sky-500/20" },
+                      { name: "Discord", display: "YukthaAr28", icon: FaDiscord, text: "Open Discord", link: "https://discord.com/users/YukthaAr28", color: "from-indigo-600/30 to-violet-600/10", shadow: "shadow-indigo-500/20" },
+                      { name: "GitHub", display: "YukthaAr28", icon: FaGithub, text: "View GitHub", link: "https://github.com/YukthaAr28", color: "from-gray-600/30 to-slate-600/10", shadow: "shadow-gray-500/20" },
+                      { name: "Instagram", display: "sharmikrishna_28_", icon: FaInstagram, text: "View Profile", link: "https://instagram.com/sharmikrishna_28_", color: "from-pink-600/30 to-rose-600/10", shadow: "shadow-pink-500/20" },
                     ].map((platform) => {
                       const Icon = platform.icon;
                       return (

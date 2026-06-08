@@ -92,17 +92,22 @@ export const SOCIALS = [
   {
     name: "Instagram",
     icon: RxInstagramLogo,
-    link: "https://instagram.com",
+    link: "https://instagram.com/sharmikrishna_28_",
   },
   {
-    name: "Facebook",
-    icon: FaFacebook,
-    link: "https://facebook.com",
+    name: "Linkedin",
+    icon: RxLinkedinLogo,
+    link: "https://linkedin.com/in/Yukthaar28",
   },
   {
-    name: "Twitter",
-    icon: RxTwitterLogo,
-    link: "https://x.com/_sanidhyy",
+    name: "GitHub",
+    icon: RxGithubLogo,
+    link: "https://github.com/YukthaAr28",
+  },
+  {
+    name: "Discord",
+    icon: RxDiscordLogo,
+    link: "https://discord.com/users/YukthaAr28",
   },
 ] as const;
 
@@ -293,12 +298,12 @@ export const FOOTER_DATA = [
       {
         name: "GitHub",
         icon: RxGithubLogo,
-        link: "https://github.com",
+        link: "https://github.com/YukthaAr28",
       },
       {
         name: "Discord",
         icon: RxDiscordLogo,
-        link: "https://discord.com",
+        link: "https://discord.com/users/YukthaAr28",
       },
     ],
   },
@@ -308,17 +313,12 @@ export const FOOTER_DATA = [
       {
         name: "Instagram",
         icon: RxInstagramLogo,
-        link: "https://instagram.com",
-      },
-      {
-        name: "Twitter",
-        icon: RxTwitterLogo,
-        link: "https://x.com/_sanidhyy",
+        link: "https://instagram.com/sharmikrishna_28_",
       },
       {
         name: "Linkedin",
         icon: RxLinkedinLogo,
-        link: "https://linkedin.com",
+        link: "https://linkedin.com/in/Yukthaar28",
       },
     ],
   },
@@ -333,12 +333,12 @@ export const FOOTER_DATA = [
       {
         name: "Learning about me",
         icon: null,
-        link: "https://example.com",
+        link: "/hire",
       },
       {
         name: "Contact Me",
         icon: null,
-        link: "mailto:contact@example.com",
+        link: "/contact",
       },
     ],
   },
@@ -363,7 +363,7 @@ export const NAV_LINKS = [
   },
   {
     title: "Contact",
-    link: "/#contact",
+    link: "/contact",
   },
   {
     title: "Hire Me",
@@ -372,5 +372,5 @@ export const NAV_LINKS = [
 ] as const;
 
 export const LINKS = {
-  sourceCode: "https://github.com/sanidhyy/space-portfolio",
+  sourceCode: "https://github.com/YukthaAr28/yukki-space",
 };
