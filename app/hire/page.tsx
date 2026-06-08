@@ -99,8 +99,12 @@ export default function HirePage() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [emailError, setEmailError] = useState<string | null>(null);
+  const [isVerified, setIsVerified] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  console.log("isVerified:", isVerified);
+
   const [toasts, setToasts] = useState<{ id: number; message: string; type: "success" | "error" }[]>([]);
 
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
@@ -133,7 +137,7 @@ export default function HirePage() {
     message.trim() !== "" &&
     email.trim() !== "" &&
     emailError === null &&
-    (turnstileSiteKey === "" || turnstileToken !== "");
+    (turnstileSiteKey === "" || isVerified);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -744,8 +748,15 @@ export default function HirePage() {
                       {turnstileSiteKey ? (
                         <Turnstile
                           siteKey={turnstileSiteKey}
-                          onVerify={(token) => setTurnstileToken(token)}
-                          onExpire={() => setTurnstileToken("")}
+                          onVerify={(token) => {
+                            console.log("Turnstile token:", token);
+                            setTurnstileToken(token);
+                            setIsVerified(true);
+                          }}
+                          onExpire={() => {
+                            setTurnstileToken("");
+                            setIsVerified(false);
+                          }}
                         />
                       ) : (
                         <div className="text-[11px] text-[#00f2fe]/75 border border-[#00f2fe]/20 rounded-lg p-3 bg-[#0300145e]">

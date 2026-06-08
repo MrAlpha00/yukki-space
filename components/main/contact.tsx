@@ -86,8 +86,11 @@ export const Contact = () => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [emailError, setEmailError] = useState<string | null>(null);
+  const [isVerified, setIsVerified] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  console.log("isVerified:", isVerified);
 
   // Toasts state
   const [toasts, setToasts] = useState<ToastType[]>([]);
@@ -124,7 +127,7 @@ export const Contact = () => {
     message.trim() !== "" &&
     email.trim() !== "" &&
     emailError === null &&
-    (turnstileSiteKey === "" || turnstileToken !== "");
+    (turnstileSiteKey === "" || isVerified);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -308,8 +311,15 @@ export const Contact = () => {
             {turnstileSiteKey ? (
               <Turnstile
                 siteKey={turnstileSiteKey}
-                onVerify={(token) => setTurnstileToken(token)}
-                onExpire={() => setTurnstileToken("")}
+                onVerify={(token) => {
+                  console.log("Turnstile token:", token);
+                  setTurnstileToken(token);
+                  setIsVerified(true);
+                }}
+                onExpire={() => {
+                  setTurnstileToken("");
+                  setIsVerified(false);
+                }}
               />
             ) : (
               <div className="text-[11px] text-[#00f2fe]/75 border border-[#00f2fe]/20 rounded-lg p-3 bg-[#0300145e]">
