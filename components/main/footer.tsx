@@ -13,18 +13,21 @@ export const Footer = () => {
               className="min-w-[200px] h-auto flex flex-col items-center justify-start"
             >
               <h3 className="font-bold text-[16px]">{column.title}</h3>
-              {column.data.map(({ icon: Icon, name, link }) => (
-                <Link
-                  key={`${column.title}-${name}`}
-                  href={link}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="flex flex-row items-center my-[15px]"
-                >
-                  {Icon && <Icon />}
-                  <span className="text-[15px] ml-[6px]">{name}</span>
-                </Link>
-              ))}
+              {column.data.map(({ icon: Icon, name, link }) => {
+                const isExternal = link.startsWith("http");
+                return (
+                  <Link
+                    key={`${column.title}-${name}`}
+                    href={link}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noreferrer noopener" : undefined}
+                    className="flex flex-row items-center my-[15px]"
+                  >
+                    {Icon && <Icon />}
+                    <span className="text-[15px] ml-[6px]">{name}</span>
+                  </Link>
+                );
+              })}
             </div>
           ))}
         </div>
