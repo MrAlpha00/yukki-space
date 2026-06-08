@@ -10,23 +10,19 @@ interface TurnstileProps {
 
 export const Turnstile = ({ siteKey, onVerify, onExpire }: TurnstileProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Use refs to prevent re-triggering the useEffect and re-rendering the iframe on state changes
+  const onVerifyRef = useRef(onVerify);
+  const onExpireRef = useRef(onExpire);
+
+  // Keep callback refs updated with the latest props
+  useEffect(() => {
+    onVerifyRef.current = onVerify;
+    onExpireRef.current = onExpire;
+  });
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-
-    // Set callback references in the global scope
-    const verifyCallbackName = `onTurnstileVerify_${siteKey.replace(/[^a-zA-Z0-9]/g, "")}`;
-    const expireCallbackName = `onTurnstileExpire_${siteKey.replace(/[^a-zA-Z0-9]/g, "")}`;
-
-    (window as any)[verifyCallbackName] = (token: string) => {
-      onVerify(token);
-    };
-
-    if (onExpire) {
-      (window as any)[expireCallbackName] = () => {
-        onExpire();
-      };
-    }
 
     // Load dynamic challenges script if not present
     if (!document.getElementById("cloudflare-turnstile-script")) {
@@ -46,8 +42,14 @@ export const Turnstile = ({ siteKey, onVerify, onExpire }: TurnstileProps) => {
         try {
           widgetId = (window as any).turnstile.render(containerRef.current, {
             sitekey: siteKey,
-            callback: verifyCallbackName,
-            "expired-callback": expireCallbackName,
+            callback: (token: string) => {
+              onVerifyRef.current(token);
+            },
+            "expired-callback": () => {
+              if (onExpireRef.current) {
+                onExpireRef.current();
+              }
+            },
             theme: "dark",
           });
         } catch (e) {
@@ -61,9 +63,7 @@ export const Turnstile = ({ siteKey, onVerify, onExpire }: TurnstileProps) => {
     renderWidget();
 
     return () => {
-      // Clean up callbacks and rendered widget
-      delete (window as any)[verifyCallbackName];
-      delete (window as any)[expireCallbackName];
+      // Clean up rendered widget
       if (widgetId && (window as any).turnstile) {
         try {
           (window as any).turnstile.remove(widgetId);
@@ -75,7 +75,7 @@ export const Turnstile = ({ siteKey, onVerify, onExpire }: TurnstileProps) => {
         currentContainer.innerHTML = "";
       }
     };
-  }, [siteKey, onVerify, onExpire]);
+  }, [siteKey]); // Only re-run if siteKey changes
 
   return <div ref={containerRef} className="my-2 min-h-[65px]" />;
 };
