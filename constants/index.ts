@@ -363,7 +363,7 @@ export const NAV_LINKS = [
   },
   {
     title: "Contact",
-    link: "/contact",
+    link: "/#contact",
   },
   {
     title: "Hire Me",
