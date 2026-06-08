@@ -12,7 +12,7 @@ export const AboutMe = () => {
       className="flex flex-col items-center justify-center min-h-[60vh] relative overflow-hidden py-20 px-6 md:px-20 z-[30]"
     >
       <div className="w-full max-w-[1200px] flex flex-col md:flex-row items-center justify-between gap-12">
-        
+
         {/* Left Side (50%) - Terminal/Window Style Card */}
         <motion.div
           initial="hidden"
@@ -23,7 +23,7 @@ export const AboutMe = () => {
         >
           {/* Terminal Card Container */}
           <div className="w-full rounded-2xl border border-[#7042f88b] bg-[#0300145e] backdrop-blur-md shadow-lg shadow-[#2A0E61]/50 shadow-[inset_0_-7px_11px_#a48fff1f] overflow-hidden hover:border-[#9b7bf8] transition duration-300">
-            
+
             {/* Top Bar */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-[#7042f88b] bg-[#03001490]">
               {/* Three dots (red, yellow, green) */}
@@ -32,23 +32,29 @@ export const AboutMe = () => {
                 <span className="w-3 h-3 rounded-full bg-[#ffbd2e] shadow-[0_0_8px_#ffbd2e] inline-block"></span>
                 <span className="w-3 h-3 rounded-full bg-[#27c93f] shadow-[0_0_8px_#27c93f] inline-block"></span>
               </div>
-              
+
               {/* Title Text */}
               <div className="font-semibold text-sm tracking-widest text-[#b49bff] drop-shadow-[0_0_6px_#7042f8] select-none">
                 ABOUT ME
               </div>
-              
+
               {/* Balance spacer */}
               <div className="w-16"></div>
             </div>
-            
+
             {/* Card Body */}
             <div className="p-8">
               <p className="text-gray-300 text-lg leading-relaxed font-light">
-                I am a Full Stack Developer passionate about building modern web applications, AI-powered tools, and innovative digital experiences. This content will be updated later.
+                Hello! I'm Yuktha, a passionate and creative individual with a love for learning and innovation.
+                I enjoy exploring new ideas, building meaningful connections, and taking on exciting challenges.
+                With a strong interest in technology and personal growth, I continuously strive to improve my skills.
+                I believe in hard work, dedication, and maintaining a positive mindset in everything I do.
+                My journey is driven by curiosity, creativity, and the desire to make a meaningful impact.
+                Outside of work, I enjoy discovering new experiences and creating lasting memories.
+                Thank you for visiting my portfolio and being a part of my journey.
               </p>
             </div>
-            
+
           </div>
         </motion.div>
 
@@ -63,7 +69,7 @@ export const AboutMe = () => {
           <div className="relative group cursor-pointer w-full max-w-[380px]">
             {/* Outer glowing ring background */}
             <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-purple-600 to-cyan-500 opacity-60 blur-md group-hover:opacity-100 group-hover:blur-lg transition duration-500"></div>
-            
+
             {/* Frame container */}
             <div className="relative rounded-2xl bg-[#030014] border-2 border-[#7042f88b] overflow-hidden p-2 flex items-center justify-center">
               <Image
